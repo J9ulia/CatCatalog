@@ -2,6 +2,14 @@ body {
     background: #efa11b;
 }
 
-div.some_block {
-    background: bisque;
+div.greeting {
+    background: #f1d7aa;
+}
+
+div.info {
+    background: #f1d7aa;
+}
+
+div.images {
+    background: #f1d7aa;
 }
