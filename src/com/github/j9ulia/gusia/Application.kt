@@ -1,11 +1,9 @@
-package CatCatalog
+package com.github.j9ulia.gusia
 
 import io.ktor.application.*
 import io.ktor.html.respondHtml
-import io.ktor.http.*
 import io.ktor.http.content.resources
 import io.ktor.http.content.static
-import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*

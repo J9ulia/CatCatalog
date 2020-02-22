@@ -1,7 +1,9 @@
-package CatCatalog
+package com.github.j9ulia.gusia.repository
 
-class CatRepositoryImpl(): CatRepository {
-    private val catsMap = mutableMapOf<String,Cat>()
+import com.github.j9ulia.gusia.model.Cat
+
+class CatRepositoryImpl : CatRepository {
+    private val catsMap = mutableMapOf<String, Cat>()
 
     override fun find(name: String): Cat {
         return catsMap[name] ?: throw IllegalArgumentException("Cat $name doesn't find")
