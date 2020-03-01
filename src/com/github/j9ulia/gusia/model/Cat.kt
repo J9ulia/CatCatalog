@@ -1,5 +1,6 @@
 package com.github.j9ulia.gusia.model
 
-class Cat(val name: String, val age: Double) {
+import java.time.LocalDate
 
-}
+
+class Cat(val name: String, val breed: String? = null, val dateOfBirth: LocalDate)
