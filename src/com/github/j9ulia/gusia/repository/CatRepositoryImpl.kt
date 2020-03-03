@@ -18,6 +18,6 @@ class CatRepositoryImpl : CatRepository {
     }
 
     override fun delete(cat: Cat) {
-        catsMap.remove(cat.name)
+        catsMap.remove(cat.name) ?: throw IllegalArgumentException("Cat ${cat.name} doesn't find")
     }
 }

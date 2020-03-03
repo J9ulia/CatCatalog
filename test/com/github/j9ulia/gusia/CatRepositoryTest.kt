@@ -57,8 +57,38 @@ class CatRepositoryTest {
     }
 
     @Test
-    fun  `cant delete nonexistent cat`() {}
+    fun  `cant delete nonexistent cat`() {
+        val repository: CatRepository = CatRepositoryImpl()
+        val dateOfBirthMyCat: LocalDate = LocalDate.parse("2018-12-12")
+        val cat = Cat("Иван", null, dateOfBirthMyCat)
+        val actualException = assertThrows<IllegalArgumentException> {
+            repository.delete(cat)
+        }
+        assertEquals("Cat Иван doesn't find", actualException.message)
+    }
 
     @Test
-    fun  `can add new cats and list them`() {}
+    fun  `can add new cats and list them`() {
+        val repository: CatRepository = CatRepositoryImpl()
+        val dateOfBirthMyCat: LocalDate = LocalDate.parse("2018-12-12")
+        val cat1 = Cat("Иван", null, dateOfBirthMyCat)
+        val cat2 = Cat("Олег", null, dateOfBirthMyCat)
+        val catsMapTest = mutableMapOf<String, Cat>()
+        catsMapTest[cat1.name] = cat1
+        catsMapTest[cat2.name] = cat2
+        repository.add(cat1)
+        repository.add(cat2)
+        val catsFromRepository = repository.list()
+        assert(catsFromRepository == catsMapTest.values.toList()) {
+            "can't find cat added to the repository"
+        }
+    }
+
+    @Test
+    fun  `empty list`() {
+        val repository: CatRepository = CatRepositoryImpl()
+        val emptyList = listOf<Cat>()
+        assert(repository.list() == emptyList )
+
+    }
 }
